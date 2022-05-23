@@ -33,7 +33,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blog</title>
+    <title>だーれんの課題</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +77,7 @@
     <label class="visually-hidden">パスワード</label>
     <input type="password" name="password" class="form-control" placeholder="パスワード" required>
     <button class="w-100 btn btn-lg btn-primary" type="submit">ログインする</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+    <p class="mt-5 mb-3 text-muted">&copy; DAREN</p>
   </form>
 </main>
     

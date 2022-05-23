@@ -1,5 +1,15 @@
 <!-- ここから変更 -->
 <?php include('lib/nav.php'); ?>
+<?php
+  include 'lib/secure.php';
+  include 'lib/connect.php';
+  include 'lib/queryArticle.php';
+  include 'lib/article.php';
+
+  $queryArticle = new QueryArticle();
+
+  $articles = $queryArticle->findAll();
+?>
 
 <!-- ここまで変更 -->
 
@@ -8,8 +18,6 @@
 <!doctype html>
 <html lang="ja">
   <head>
-（略）
-
 
 
 <!doctype html>
@@ -52,10 +60,10 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-red fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="/blog/backend.php">My Blog Backend</a>
+    <a class="navbar-brand" href="/blog/backend.php">言問茶屋＠天然酵母のパン屋さん</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item"><a class="nav-link" href="#">記事を書く</a></li>
+          <li class="nav-item"><a class="nav-link" href="post.php">登録</a></li>
           <li class="nav-item"><a class="nav-link" href="logout.php">ログアウト</a></li>
         </ul>
       </div>
@@ -66,10 +74,43 @@
   <div class="row">
     <div class="col-md-12">
 
-      <p>本文がここに入ります。</p>
+    <h1>商品一覧</h1>
+
+<?php if ($articles): ?>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>商品名</th>
+            <th>商品情報</th>
+            <th>作成日</th>
+            <th>更新日</th>
+            <th>編集</th>
+          </tr>
+        </thead>
+        <tbody>
+<?php foreach ($articles as $article): ?>
+          <tr>
+            <td><?php echo $article->getId() ?></td>
+            <td><?php echo $article->getTitle() ?></td>
+            <td><?php echo $article->getBody() ?></td>
+            <td><?php echo $article->getCreatedAt() ?></td>
+            <td><?php echo $article->getUpdatedAt() ?></td>
+            <td><a href="edit.php?id=<?php echo $article->getId() ?>" class="btn btn-success">編集</a></td>
+          </tr>
+<?php endforeach ?>
+        </tbody>
+      </table>
+<?php else: ?>
+      <div class="alert alert-info">
+        <p>データはありません。</p>
+      </div>
+
+<?php endif ?>
+
+
 
     </div>
-
 
 
 
