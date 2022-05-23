@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2022-05-19 22:36:00
+-- 生成日時: 2022-05-23 04:54:36
 -- サーバのバージョン： 10.4.24-MariaDB
 -- PHP のバージョン: 8.1.5
 
@@ -32,9 +32,22 @@ CREATE TABLE `articles` (
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
   `category_id` int(11) DEFAULT NULL,
+  `filename` varchar(100) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `articles`
+--
+
+INSERT INTO `articles` (`id`, `title`, `body`, `category_id`, `filename`, `created_at`, `updated_at`) VALUES
+(11, 'バナナブレッド（自家製酵母）編集', '一番人気商品。ｘｘｘｘｘｘ', NULL, NULL, '2022-05-21 10:51:15', '2022-05-21 13:13:09'),
+(12, '天然酵母の竹炭チョコベーグル', '玉木宏主演の『極主夫道 ザ・シネマ』コラボ商品、6月3日全国の109シネマで販売\r\nもちもち食感、竹炭の外観が特色', NULL, NULL, '2022-05-21 10:55:06', '2022-05-21 10:55:50'),
+(13, 'ランチセット', 'サンドイッチとお好きなベーグルのセット　600円', NULL, NULL, '2022-05-21 10:57:54', '2022-05-21 10:57:54'),
+(14, 'テスト', 'ｄｄｄｄ', NULL, NULL, '2022-05-21 13:12:55', '2022-05-21 13:12:55'),
+(15, 'ｓ', 'ｄ', NULL, NULL, '2022-05-21 13:13:45', '2022-05-21 13:13:45'),
+(16, 'kkuuuuu', 'kk,,,,,,,,,,,,,,,', NULL, NULL, '2022-05-21 14:11:46', '2022-05-21 14:12:01');
 
 -- --------------------------------------------------------
 
@@ -96,7 +109,7 @@ ALTER TABLE `users`
 -- テーブルの AUTO_INCREMENT `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- テーブルの AUTO_INCREMENT `categories`
