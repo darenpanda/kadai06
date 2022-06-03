@@ -43,7 +43,7 @@
     <div class="col-md-8">
 
       <article class="blog-post">
-        <h2 class="blog-post-title">記事タイトル</h2>
+        <h2 class="blog-post-title">記事タイトル変更</h2>
         <p class="blog-post-meta">2021/xx/xx</p>
         
         <p>本文がここに入ります。</p>
