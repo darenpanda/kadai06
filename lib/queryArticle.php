@@ -81,9 +81,20 @@ class QueryArticle extends connect{
         }
       }
     // 省略
+ // ===== ↓ここから追加↓：save()メソッドの下にdelete()を追加
+ public function delete(){
+  if ($this->article->getId()){
+    $id = $this->article->getId();
+    $stmt = $this->dbh->prepare("UPDATE articles SET is_delete=1 WHERE id=:id");
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+  }   
+}
+// ===== ↑ここまで追加↑ =====
+
 
     public function find($id){
-        $stmt = $this->dbh->prepare("SELECT * FROM articles WHERE id=:id");
+                $stmt = $this->dbh->prepare("SELECT * FROM articles WHERE id=:id AND is_delete=0");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -101,7 +112,8 @@ class QueryArticle extends connect{
 
 
     public function findAll(){
-        $stmt = $this->dbh->prepare("SELECT * FROM articles");
+            $stmt = $this->dbh->prepare("SELECT * FROM articles WHERE is_delete=0 ORDER BY created_at DESC");
+
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $articles = array();
