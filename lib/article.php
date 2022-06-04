@@ -12,10 +12,16 @@ class Article{
 
 
   public function save(){
-    $queryArticle = new QueryArticle();
-    $queryArticle->setArticle($this);
-    $queryArticle->save();
+  
   }
+ // ===== 追加ここから：save()とgetId()の間にdelete()を追加する =====
+ public function delete(){
+  $queryArticle = new QueryArticle();
+  $queryArticle->setArticle($this);
+  $queryArticle->delete();
+}
+// ===== 追加ここまで =====
+
 
   public function getId(){
     return $this->id;
