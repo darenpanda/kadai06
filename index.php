@@ -60,8 +60,9 @@
 
     <div class="col-md-4">
       <div class="p-4 mb-3 bg-light rounded">
-        <h4>ブログについて</h4>
-        <p class="mb-0">毎日のなんてことない日常を書いていきます。</p>
+        <h4>みんなのパン屋さん（仮称）
+        </h4>
+        <p class="mb-0">卒業制作に向けた準備として</p>
       </div>
 
       <div class="p-4">
